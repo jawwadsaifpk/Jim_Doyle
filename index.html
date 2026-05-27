@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jim Doyle – Expert Math Tutor | West Hartford, Connecticut, United States</title>
+  <meta name="description" content="Expert home tutor in West Hartford, Connecticut, United States. Math for Grade 6–12. Book a free trial class today.">
+
+  <!-- EDIT: Update title and description meta tags above for each new tutor -->
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES  –  change colors here for rebranding
+    ============================================================ */
+    :root {
+      --primary:       #0f4c75;
+      --primary-dark:  #0a3352;
+      --primary-light: #1a6fa0;
+      --accent:        #e8a020;
+      --accent-dark:   #c8880a;
+      --wa:            #25D366;
+      --wa-dark:       #1da851;
+      --bg:            #f4f7fb;
+      --card:          #ffffff;
+      --text-dark:     #1a252f;
+      --text-body:     #4a5568;
+      --text-muted:    #718096;
+      --border:        #e2e8f0;
+      --sh-sm: 0 2px 8px rgba(0,0,0,.06);
+      --sh-md: 0 4px 20px rgba(0,0,0,.10);
+      --sh-lg: 0 8px 40px rgba(0,0,0,.14);
+      --r-sm: 8px;
+      --r-md: 14px;
+      --r-lg: 22px;
+      --ease: .3s ease;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-body);
+      background: var(--bg);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img { max-width:100%; display:block; }
+    a { text-decoration: none; }
+
+    /* ===== SCROLL-REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    /* ===== LAYOUT UTILS ===== */
+    .container { max-width:1100px; margin:0 auto; padding:0 20px; }
+    section { padding: 88px 20px; }
+
+    .section-label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.55rem);
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .section-head { text-align:center; margin-bottom: 58px; }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: .97rem;
+      transition: all var(--ease);
+      cursor: pointer;
+      border: none;
+    }
+    .btn-gold {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(232,160,32,.4);
+    }
+    .btn-gold:hover { background:var(--accent-dark); transform:translateY(-2px); box-shadow:0 6px 22px rgba(232,160,32,.5); }
+
+    .btn-wa {
+      background: var(--wa);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(37,211,102,.4);
+    }
+    .btn-wa:hover { background:var(--wa-dark); transform:translateY(-2px); box-shadow:0 6px 22px rgba(37,211,102,.5); }
+
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,.45);
+      padding: 12px 26px;
+    }
+    .btn-ghost:hover { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.8); }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    #nav {
+      position: fixed; top:0; left:0; right:0; z-index:1000;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      transition: box-shadow var(--ease);
+    }
+    #nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.10); }
+    .nav-inner {
+      max-width:1100px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    /* EDIT: Tutor name in nav logo */
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight:700;
+      color: var(--primary);
+    }
+    .nav-links { display:flex; gap:26px; list-style:none; }
+    .nav-links a {
+      color: var(--text-body); font-size:.88rem; font-weight:500;
+      transition: color var(--ease);
+    }
+    .nav-links a:hover { color:var(--primary); }
+    .nav-cta {
+      background:var(--primary); color:#fff !important;
+      padding: 8px 18px; border-radius:50px; font-size:.82rem !important;
+    }
+    .nav-cta:hover { background:var(--primary-dark) !important; }
+    .hamburger {
+      display:none; flex-direction:column; gap:5px;
+      background:none; border:none; cursor:pointer; padding:4px;
+    }
+    .hamburger span { width:24px; height:2px; background:var(--text-dark); border-radius:2px; transition:all .3s; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      background: linear-gradient(140deg, #0a3352 0%, #0f4c75 50%, #1a6fa0 100%);
+      min-height: 100vh;
+      display: flex; align-items:center;
+      padding: 130px 20px 90px;
+      position:relative; overflow:hidden;
+    }
+    #hero::before {
+      content:'';
+      position:absolute; top:-30%; right:-15%;
+      width:620px; height:620px;
+      background:radial-gradient(circle, rgba(232,160,32,.13) 0%, transparent 70%);
+      border-radius:50%;
+      pointer-events:none;
+    }
+    #hero::after {
+      content:'';
+      position:absolute; bottom:-25%; left:-8%;
+      width:420px; height:420px;
+      background:radial-gradient(circle, rgba(255,255,255,.05) 0%, transparent 70%);
+      border-radius:50%;
+      pointer-events:none;
+    }
+    .hero-grid {
+      max-width:1100px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr;
+      align-items:center; gap:64px;
+    }
+    .hero-text { color:#fff; position:relative; z-index:1; }
+
+    /* EDIT: Location badge */
+    .hero-loc {
+      display:inline-flex; align-items:center; gap:7px;
+      background:rgba(255,255,255,.14);
+      color:#f0d090;
+      padding:6px 16px; border-radius:50px;
+      font-size:.78rem; font-weight:600;
+      border:1px solid rgba(255,255,255,.2);
+      margin-bottom:20px;
+    }
+    /* EDIT: Tutor name h1 */
+    .hero-name {
+      font-family:'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight:800; color:#fff; line-height:1.08;
+      margin-bottom:14px;
+    }
+    /* EDIT: Tagline */
+    .hero-tagline {
+      font-size: clamp(.97rem, 2vw, 1.18rem);
+      color:rgba(255,255,255,.82); margin-bottom:28px;
+    }
+    /* EDIT: Subject badges in hero */
+    .hero-badges { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:36px; }
+    .hero-badge {
+      background:rgba(255,255,255,.13);
+      color:#fff; padding:7px 16px; border-radius:50px;
+      font-size:.83rem; font-weight:500;
+      border:1px solid rgba(255,255,255,.22);
+    }
+    .hero-actions { display:flex; gap:14px; flex-wrap:wrap; }
+
+    /* === AVATAR === */
+    .hero-visual {
+      display:flex; justify-content:center; align-items:center;
+      position:relative; z-index:1;
+    }
+    .avatar-wrap { position:relative; }
+    .avatar-ring {
+      width:290px; height:290px; border-radius:50%;
+      border:3px solid rgba(232,160,32,.4); padding:12px;
+      animation: pulse 3.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { box-shadow:0 0 0 0 rgba(232,160,32,.3); }
+      50%      { box-shadow:0 0 0 18px rgba(232,160,32,0); }
+    }
+    .avatar-circle {
+      width:100%; height:100%; border-radius:50%;
+      background:linear-gradient(135deg, #1a6fa0, #0a3352);
+      border:4px solid rgba(232,160,32,.65);
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center; gap:8px;
+      position:relative; overflow:hidden;
+    }
+    .avatar-circle::before {
+      content:''; position:absolute;
+      bottom:0; left:0; right:0; height:52%;
+      background:rgba(255,255,255,.06);
+      border-radius:50% 50% 0 0;
+    }
+    /* EDIT: Avatar initials — change to tutor's initials */
+    .avatar-initials {
+      font-family:'Playfair Display',serif;
+      font-size:3.6rem; font-weight:700;
+      color:rgba(255,255,255,.95); line-height:1; z-index:1;
+    }
+    .avatar-sub { font-size:1.1rem; color:rgba(232,160,32,.9); z-index:1; }
+
+    /* Floating mini-cards on avatar */
+    .float-card {
+      position:absolute; background:#fff; border-radius:var(--r-md);
+      padding:11px 15px; box-shadow:var(--sh-lg);
+      display:flex; align-items:center; gap:10px;
+    }
+    .float-card.fl { left:-32px; bottom:60px; animation:bob 4s ease-in-out infinite; }
+    .float-card.fr { right:-24px; top:60px;  animation:bob 4s ease-in-out infinite .6s; }
+    @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+    .fc-icon {
+      width:36px; height:36px; border-radius:8px;
+      display:flex; align-items:center; justify-content:center; font-size:.95rem;
+    }
+    .fc-icon.gold { background:#fff3cd; color:var(--accent); }
+    .fc-icon.blue { background:#dbeafe; color:var(--primary); }
+    .fc-val  { font-weight:700; color:var(--text-dark); font-size:1.1rem; }
+    .fc-lbl  { font-size:.68rem; color:var(--text-muted); }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    #about { background:var(--card); }
+    .about-grid {
+      display:grid; grid-template-columns:1fr 1.35fr;
+      gap:72px; align-items:center;
+    }
+    .stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .stat-box {
+      background:var(--bg); border-radius:var(--r-md);
+      padding:28px 18px; text-align:center;
+      border:1px solid var(--border);
+      transition:transform var(--ease), box-shadow var(--ease);
+    }
+    .stat-box:hover { transform:translateY(-4px); box-shadow:var(--sh-md); }
+    /* EDIT: Stats numbers */
+    .stat-num {
+      font-family:'Playfair Display',serif;
+      font-size:2.5rem; font-weight:700;
+      color:var(--primary); line-height:1; margin-bottom:6px;
+    }
+    .stat-lbl { font-size:.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.6px; font-weight:500; }
+
+    /* EDIT: About paragraph text */
+    .about-copy p { margin-bottom:16px; font-size:1.01rem; line-height:1.78; }
+    .quote-bar {
+      background:linear-gradient(135deg,#e8f4fd,#f0f8ff);
+      border-left:4px solid var(--primary);
+      padding:17px 22px; border-radius:0 var(--r-sm) var(--r-sm) 0;
+      margin-top:24px; font-style:italic;
+      color:var(--primary-dark); font-weight:500; font-size:.97rem;
+    }
+
+    /* ============================================================
+       SUBJECTS
+    ============================================================ */
+    #subjects { background:var(--bg); }
+    .subjects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:24px; }
+    .subj-card {
+      background:var(--card); border-radius:var(--r-md);
+      padding:30px 24px; border:1px solid var(--border);
+      position:relative; overflow:hidden;
+      transition:transform var(--ease), box-shadow var(--ease);
+    }
+    .subj-card::before {
+      content:''; position:absolute; top:0; left:0; right:0;
+      height:4px; background:var(--primary);
+      transition:height var(--ease);
+    }
+    .subj-card:hover { transform:translateY(-7px); box-shadow:var(--sh-lg); }
+    .subj-card:hover::before { height:6px; }
+    .subj-icon {
+      width:52px; height:52px; border-radius:var(--r-sm);
+      background:linear-gradient(135deg,#e8f4fd,#dbeafe);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.35rem; color:var(--primary); margin-bottom:16px;
+    }
+    .subj-card h3 { font-size:1.12rem; font-weight:700; color:var(--text-dark); margin-bottom:6px; }
+    .subj-grades { font-size:.82rem; color:var(--text-muted); margin-bottom:12px; }
+    .topic-chips { display:flex; flex-wrap:wrap; gap:6px; }
+    .chip {
+      background:var(--bg); color:var(--text-body);
+      padding:3px 11px; border-radius:50px;
+      font-size:.73rem; border:1px solid var(--border);
+    }
+
+    /* ============================================================
+       HOW IT WORKS
+    ============================================================ */
+    #how { background:var(--card); }
+    .steps-row {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:40px; position:relative;
+    }
+    .steps-row::before {
+      content:'';
+      position:absolute; top:35px;
+      left:calc(16.67% + 20px); right:calc(16.67% + 20px);
+      height:2px;
+      background:linear-gradient(90deg, var(--primary), var(--accent));
+      z-index:0;
+    }
+    .step { text-align:center; position:relative; z-index:1; }
+    .step-num {
+      width:72px; height:72px; border-radius:50%;
+      background:var(--primary); color:#fff;
+      font-family:'Playfair Display',serif;
+      font-size:1.65rem; font-weight:700;
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 20px;
+      border:4px solid #fff;
+      box-shadow:0 0 0 3px var(--primary);
+      position:relative;
+    }
+    .step-num.alt { background:var(--accent); box-shadow:0 0 0 3px var(--accent); }
+    .step-pip {
+      position:absolute; top:-8px; right:-8px;
+      width:26px; height:26px; border-radius:50%;
+      background:var(--accent); display:flex;
+      align-items:center; justify-content:center;
+      font-size:.62rem; color:#fff;
+    }
+    .step-pip.alt-pip { background:var(--primary); }
+    .step h3 { font-size:1.08rem; font-weight:700; color:var(--text-dark); margin-bottom:10px; }
+    .step p  { font-size:.88rem; color:var(--text-muted); line-height:1.65; }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    #testimonials {
+      background:linear-gradient(140deg, #0a3352 0%, #0f4c75 60%, #1a6fa0 100%);
+    }
+    #testimonials .section-title { color:#fff; }
+    #testimonials .section-sub   { color:rgba(255,255,255,.72); }
+    #testimonials .section-label { color:#f0d090; }
+    .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+    .testi-card {
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:var(--r-md); padding:30px 26px;
+      backdrop-filter:blur(8px);
+      transition:background var(--ease), transform var(--ease);
+    }
+    .testi-card:hover { background:rgba(255,255,255,.16); transform:translateY(-5px); }
+    .stars { color:var(--accent); font-size:.95rem; margin-bottom:14px; }
+    .testi-card p { font-size:.93rem; line-height:1.72; color:rgba(255,255,255,.88); font-style:italic; margin-bottom:22px; }
+    .testi-footer { display:flex; align-items:center; gap:12px; }
+    .testi-av {
+      width:44px; height:44px; border-radius:50%;
+      background:rgba(255,255,255,.2);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:700; font-size:.95rem; color:#fff; flex-shrink:0;
+    }
+    .testi-name { font-weight:600; color:#fff; font-size:.93rem; }
+    .testi-role { font-size:.75rem; color:rgba(255,255,255,.58); }
+
+    /* ============================================================
+       PRICING
+    ============================================================ */
+    #pricing { background:var(--bg); }
+    .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; align-items:start; }
+    .price-card {
+      background:var(--card); border-radius:var(--r-lg);
+      padding:36px 28px; border:2px solid var(--border);
+      position:relative; transition:transform var(--ease), box-shadow var(--ease);
+    }
+    .price-card:hover { transform:translateY(-7px); box-shadow:var(--sh-lg); }
+    .price-card.featured {
+      border-color:var(--primary);
+      transform:scale(1.045);
+      box-shadow:var(--sh-lg);
+    }
+    .price-card.featured:hover { transform:scale(1.045) translateY(-7px); }
+    .pop-badge {
+      position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+      background:var(--primary); color:#fff;
+      padding:4px 20px; border-radius:50px; font-size:.72rem; font-weight:700; white-space:nowrap;
+    }
+    .tier-name { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--text-muted); margin-bottom:12px; }
+    /* EDIT: Prices — change PKR amounts */
+    .price { font-family:'Playfair Display',serif; font-size:2.7rem; font-weight:700; color:var(--text-dark); line-height:1; margin-bottom:4px; }
+    .price-per { font-size:.8rem; color:var(--text-muted); margin-bottom:24px; }
+    .feat-list { list-style:none; margin-bottom:28px; }
+    .feat-list li {
+      display:flex; align-items:center; gap:10px;
+      padding:8px 0; font-size:.9rem; color:var(--text-body);
+      border-bottom:1px solid var(--border);
+    }
+    .feat-list li:last-child { border-bottom:none; }
+    .feat-list .yes { color:var(--wa); font-size:.82rem; }
+    .feat-list .no  { color:#cbd5e0; font-size:.82rem; }
+    .btn-plan {
+      display:block; text-align:center; padding:13px;
+      border-radius:50px; font-weight:600; font-size:.93rem;
+      transition:all var(--ease);
+    }
+    .btn-plan-out { border:2px solid var(--primary); color:var(--primary); }
+    .btn-plan-out:hover { background:var(--primary); color:#fff; }
+    .btn-plan-fill { background:var(--primary); color:#fff; }
+    .btn-plan-fill:hover { background:var(--primary-dark); }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact { background:var(--card); }
+    .contact-wrap { max-width:780px; margin:0 auto; text-align:center; }
+    .contact-hero {
+      background:linear-gradient(140deg, #0a3352, #1a6fa0);
+      border-radius:var(--r-lg); padding:60px 40px;
+      color:#fff; margin-bottom:40px; position:relative; overflow:hidden;
+    }
+    .contact-hero::before {
+      content:''; position:absolute; top:-35%; right:-8%;
+      width:300px; height:300px;
+      background:radial-gradient(circle,rgba(232,160,32,.15),transparent 70%);
+      border-radius:50%; pointer-events:none;
+    }
+    .contact-hero h3 {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.5rem,3vw,2rem);
+      margin-bottom:12px; color:#fff;
+    }
+    .contact-hero p { color:rgba(255,255,255,.78); font-size:1.04rem; margin-bottom:32px; }
+    .contact-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    .contact-meta { display:flex; gap:32px; justify-content:center; flex-wrap:wrap; }
+    .meta-item { display:flex; align-items:center; gap:11px; font-size:.93rem; color:var(--text-body); }
+    .meta-icon {
+      width:40px; height:40px; border-radius:50%;
+      background:var(--bg); display:flex; align-items:center; justify-content:center;
+      color:var(--primary); font-size:.88rem; flex-shrink:0;
+    }
+    .meta-item strong { display:block; font-size:.96rem; color:var(--text-dark); }
+    .meta-item span   { font-size:.77rem; color:var(--text-muted); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background:var(--text-dark); color:rgba(255,255,255,.65);
+      padding:38px 20px; text-align:center;
+    }
+    /* EDIT: Footer tutor name */
+    .footer-name { font-family:'Playfair Display',serif; font-size:1.4rem; color:#fff; margin-bottom:8px; }
+    .footer-sub  { font-size:.83rem; margin-bottom:20px; }
+    .footer-nav  { display:flex; gap:22px; justify-content:center; flex-wrap:wrap; list-style:none; margin-bottom:20px; }
+    .footer-nav a { color:rgba(255,255,255,.55); font-size:.83rem; transition:color var(--ease); }
+    .footer-nav a:hover { color:#fff; }
+    hr.foot-hr { border:none; border-top:1px solid rgba(255,255,255,.1); margin:18px 0; }
+    /* EDIT: Footer credit — replace "Your Name" with your own name / brand */
+    .foot-credit { font-size:.77rem; color:rgba(255,255,255,.35); }
+    .foot-credit a { color:var(--accent); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns:1fr; max-width:440px; margin:0 auto; }
+      .price-card.featured { transform:none; }
+      .price-card.featured:hover { transform:translateY(-7px); }
+    }
+    @media (max-width: 768px) {
+      section { padding:64px 20px; }
+
+      /* Nav */
+      .nav-links { display:none; }
+      .nav-links.open {
+        display:flex; flex-direction:column;
+        position:absolute; top:100%; left:0; right:0;
+        background:#fff; padding:20px 24px; gap:16px;
+        box-shadow:var(--sh-md); border-top:1px solid var(--border);
+      }
+      .hamburger { display:flex; }
+
+      /* Hero */
+      .hero-grid { grid-template-columns:1fr; text-align:center; gap:44px; }
+      .hero-text  { order:2; }
+      .hero-visual{ order:1; }
+      .hero-badges, .hero-actions { justify-content:center; }
+      .avatar-ring { width:210px; height:210px; }
+      .float-card.fl { left:-8px; bottom:8px; }
+      .float-card.fr { right:-8px; top:8px; }
+
+      /* About */
+      .about-grid { grid-template-columns:1fr; gap:44px; }
+
+      /* Steps */
+      .steps-row { grid-template-columns:1fr; }
+      .steps-row::before { display:none; }
+
+      /* Testimonials */
+      .testi-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width: 480px) {
+      .float-card { display:none; }
+      .stats-grid { grid-template-columns:1fr 1fr; }
+      .contact-hero { padding:40px 22px; }
+      .contact-meta { flex-direction:column; align-items:center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+     EDIT: nav-logo text, nav-cta href (WhatsApp link)
+============================================================ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">Jim Doyle</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#subjects">Subjects</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li>
+        <a href="https://wa.me/923001234567?text=Hi%20Sir%20Ahmed%2C%20I%27d%20like%20to%20book%20a%20free%20trial%20class."
+           class="nav-cta" target="_blank" rel="noopener">Book Trial</a>
+      </li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+     EDIT: hero-name, hero-tagline, hero-badge spans, WhatsApp href
+============================================================ -->
+<section id="hero">
+  <div class="hero-grid">
+
+    <div class="hero-text reveal">
+      <div class="hero-loc">
+        <i class="fas fa-location-dot"></i>
+        <!-- EDIT: City name -->
+        West Hartford, Connecticut, United States
+      </div>
+
+      <!-- EDIT: Tutor full name -->
+      <h1 class="hero-name">Jim Doyle</h1>
+
+      <!-- EDIT: Tagline -->
+      <p class="hero-tagline">Expert Math &amp; Science Tutor &nbsp;|&nbsp; 8 Years Experience</p>
+
+      <!-- EDIT: Subject badges — add/remove <span> elements as needed -->
+      <div class="hero-badges">
+        <span class="hero-badge"><i class="fas fa-square-root-variable"></i> Mathematics</span>
+        <span class="hero-badge"><i class="fas fa-atom"></i> Physics</span>
+        <span class="hero-badge"><i class="fas fa-flask"></i> Chemistry</span>
+        <span class="hero-badge"><i class="fas fa-dna"></i> Biology</span>
+        <span class="hero-badge"><i class="fas fa-chart-bar"></i> Statistics</span>
+      </div>
+
+      <div class="hero-actions">
+        <!-- EDIT: WhatsApp number in href (format: https://wa.me/[country code][number]) -->
+        <a href="https://wa.me/923001234567?text=Hi%20Sir%20Ahmed%2C%20I%27d%20like%20to%20book%20a%20free%20trial%20class."
+           class="btn btn-wa" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Book Free Trial Class
+        </a>
+        <a href="#about" class="btn btn-ghost">
+          <i class="fas fa-circle-info"></i> Learn More
+        </a>
+      </div>
+    </div><!-- /.hero-text -->
+
+    <div class="hero-visual reveal">
+      <div class="avatar-wrap">
+        <div class="avatar-ring">
+          <div class="avatar-circle">
+            <!-- EDIT: Change "AR" to the tutor's initials -->
+            <span class="avatar-initials">AR</span>
+            <span class="avatar-sub"><i class="fas fa-graduation-cap"></i></span>
+          </div>
+        </div>
+
+        <!-- Floating stat cards -->
+        <!-- EDIT: stat numbers to match actual tutor data -->
+        <div class="float-card fl">
+          <div class="fc-icon gold"><i class="fas fa-users"></i></div>
+          <div>
+            <div class="fc-val">200+</div>
+            <div class="fc-lbl">Students Taught</div>
+          </div>
+        </div>
+        <div class="float-card fr">
+          <div class="fc-icon blue"><i class="fas fa-trophy"></i></div>
+          <div>
+            <div class="fc-val">96%</div>
+            <div class="fc-lbl">Success Rate</div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.hero-visual -->
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ABOUT
+     EDIT: stat numbers, about paragraphs, pull-quote
+============================================================ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="stats-grid reveal">
+        <!-- EDIT: The four key stat numbers -->
+        <div class="stat-box">
+          <div class="stat-num">8+</div>
+          <div class="stat-lbl">Years of Experience</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">200+</div>
+          <div class="stat-lbl">Students Taught</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">96%</div>
+          <div class="stat-lbl">Success Rate</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">5</div>
+          <div class="stat-lbl">Subjects Covered</div>
+        </div>
+      </div>
+
+      <div class="about-copy reveal">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title" style="text-align:left;">Passionate About Building Strong Foundations</h2>
+
+        <!-- EDIT: Replace these paragraphs with the tutor's actual bio -->
+        <p>I'm Jim Doyle, a dedicated Mathematics tutor based in West Hartford, Connecticut, United States with over 8 years of hands-on teaching experience. I hold a Master's degree in Mathematics from the University of Agriculture Faisalabad and have helped students from Grade 6 through Intermediate (FSc/ICS) achieve their academic goals.</p>
+        <p>My teaching approach focuses on building genuine understanding rather than rote memorization. I break down complex concepts into simple, relatable steps — making even the toughest topics feel manageable and interesting for every student.</p>
+        <p>I offer both home tutoring across Hartford and live online sessions via Zoom, making quality education accessible wherever you are. Whether your child needs to catch up, keep up, or get ahead — I'm here to help.</p>
+
+        <!-- EDIT: Pull-quote -->
+        <div class="quote-bar">
+          "My goal isn't just to help students pass — it's to make them fall in love with learning."
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SUBJECTS & GRADE LEVELS
+     EDIT: subject names, grade ranges, topic chips
+     Add/remove .subj-card blocks as needed
+============================================================ -->
+<section id="subjects">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">What I Teach</div>
+      <h2 class="section-title">Subjects &amp; Grade Levels</h2>
+      <p class="section-sub">Core Science and Mathematics from middle school through Intermediate — tailored to Pakistan's board curriculum</p>
+    </div>
+
+    <div class="subjects-grid">
+
+      <div class="subj-card reveal">
+        <div class="subj-icon"><i class="fas fa-square-root-variable"></i></div>
+        <!-- EDIT: Subject name, grade range, topics -->
+        <h3>Mathematics</h3>
+        <p class="subj-grades"><i class="fas fa-layer-group"></i>&nbsp; Grade 6 – 12 (Matric &amp; FSc)</p>
+        <div class="topic-chips">
+          <span class="chip">Algebra</span>
+          <span class="chip">Geometry</span>
+          <span class="chip">Calculus</span>
+          <span class="chip">Trigonometry</span>
+        </div>
+      </div>
+
+      <div class="subj-card reveal">
+        <div class="subj-icon"><i class="fas fa-atom"></i></div>
+        <h3>Physics</h3>
+        <p class="subj-grades"><i class="fas fa-layer-group"></i>&nbsp; Grade 9 – 12 (Matric &amp; FSc)</p>
+        <div class="topic-chips">
+          <span class="chip">Mechanics</span>
+          <span class="chip">Electricity</span>
+          <span class="chip">Waves</span>
+          <span class="chip">Optics</span>
+        </div>
+      </div>
+
+      <div class="subj-card reveal">
+        <div class="subj-icon"><i class="fas fa-flask"></i></div>
+        <h3>Chemistry</h3>
+        <p class="subj-grades"><i class="fas fa-layer-group"></i>&nbsp; Grade 9 – 12 (Matric &amp; FSc)</p>
+        <div class="topic-chips">
+          <span class="chip">Organic</span>
+          <span class="chip">Inorganic</span>
+          <span class="chip">Physical</span>
+          <span class="chip">Reactions</span>
+        </div>
+      </div>
+
+      <div class="subj-card reveal">
+        <div class="subj-icon"><i class="fas fa-dna"></i></div>
+        <h3>Biology</h3>
+        <p class="subj-grades"><i class="fas fa-layer-group"></i>&nbsp; Grade 9 – 12 (Matric &amp; FSc)</p>
+        <div class="topic-chips">
+          <span class="chip">Cell Biology</span>
+          <span class="chip">Genetics</span>
+          <span class="chip">Anatomy</span>
+          <span class="chip">Ecology</span>
+        </div>
+      </div>
+
+      <div class="subj-card reveal">
+        <div class="subj-icon"><i class="fas fa-chart-bar"></i></div>
+        <h3>Statistics</h3>
+        <p class="subj-grades"><i class="fas fa-layer-group"></i>&nbsp; Grade 11 – 12 (ICS / I.Com)</p>
+        <div class="topic-chips">
+          <span class="chip">Probability</span>
+          <span class="chip">Data Analysis</span>
+          <span class="chip">Distributions</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     HOW IT WORKS
+     EDIT: step titles and descriptions
+============================================================ -->
+<section id="how">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Simple Process</div>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-sub">From your first message to your first class in three easy steps — no paperwork, no hassle</p>
+    </div>
+
+    <div class="steps-row">
+
+      <div class="step reveal">
+        <div class="step-num">
+          1
+          <span class="step-pip"><i class="fab fa-whatsapp"></i></span>
+        </div>
+        <!-- EDIT: Step titles and body text -->
+        <h3>Send a Message</h3>
+        <p>WhatsApp or call to share your child's grade, subject, and availability. We'll respond within a few hours.</p>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num alt">
+          2
+          <span class="step-pip alt-pip"><i class="fas fa-chalkboard-teacher"></i></span>
+        </div>
+        <h3>Free Trial Class</h3>
+        <p>Attend a complimentary 1-hour trial session — completely free, zero commitment. See if it's the right fit!</p>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">
+          3
+          <span class="step-pip"><i class="fas fa-rocket"></i></span>
+        </div>
+        <h3>Start Learning</h3>
+        <p>Pick your plan, set your schedule, and watch your child's confidence and grades improve week by week.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TESTIMONIALS
+     EDIT: quotes, names, roles, avatar initials
+============================================================ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">What They Say</div>
+      <h2 class="section-title">Student &amp; Parent Reviews</h2>
+      <p class="section-sub">Real feedback from families who trust Jim Doyle with their children's education</p>
+    </div>
+
+    <div class="testi-grid">
+
+      <div class="testi-card reveal">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <!-- EDIT: Testimonial text -->
+        <p>"Jim Doyle is a proven and reliable math tutor. In addition to our daughter's SAT score going up over 100 points after just 6 sessions, she excelled in her classes. Our son also went to Jim through his high school years and used the word "magical" to describe Jim's ability clarify instruction that was presented in class. We referred Jim to other students in advanced and AP classes who thought the same of him. Jim is able to bring the brightest of the bright along as well as those who struggle . A truly gifted teacher."</p>
+        <div class="testi-footer">
+          <!-- EDIT: Avatar initials, name, role -->
+          <div class="testi-av">DB</div>
+          <div>
+            <div class="testi-name">Dorothi B</div>
+            <div class="testi-role"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p>"Jim Doyle was my son's math teacher and my daughter's SAT tutor. Both felt that he was an excellent math teacher. He breaks down difficult concepts and explains them clearly. He pinpoints areas of confusion and works the student through them.  As a tutor, he provided/recommended the most current SAT practice materials. Sessions were centered around those materials and the areas of weakness that were brought to the surface while using them. Problems that stumped my daughter months before taking the Math SAT she methodically moved through, step by step, on test day correctly. Jim Doyle's careful, steady, and thorough guidance helped her to mastery. Highly recommend Jim Doyle as a tutor."</p>
+        <div class="testi-footer">
+          <div class="testi-av">SM</div>
+          <div>
+            <div class="testi-name">Suzanne M</div>
+            <div class="testi-role"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        </div>
+        <p>"My son has had the good fortune of working with Jim Doyle for both PSAT and SAT prep.  My son's scores increased by 60 and 100  points respectively.
+
+Jim's patience, superb adaptive teaching style,  and his dedication to and support of my son helped to increase my son's confidence in subject matter that does not come easy to him..
+
+It is my pleasure to highly recomnend Jim Doyle for math tutoring for a child on any educational level."</p>
+        <div class="testi-footer">
+          <div class="testi-av">SH</div>
+          <div>
+            <div class="testi-name">Sherry Haller</div>
+            <div class="testi-role"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PRICING
+     EDIT: prices (PKR amounts), sessions per month, plan features
+     WhatsApp hrefs below — update plan name in ?text= param
+============================================================ -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Transparent Pricing</div>
+      <h2 class="section-title">Simple, Affordable Plans</h2>
+      <p class="section-sub">All plans include a free trial class. No hidden fees. Cancel anytime.</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- BASIC -->
+      <div class="price-card reveal">
+        <!-- EDIT: Tier name -->
+        <div class="tier-name">Basic</div>
+        <!-- EDIT: Price in PKR -->
+        <div class="price">&#36; 1,000</div>
+        <div class="price-per">per month</div>
+        <ul class="feat-list">
+          <!-- EDIT: Feature lines — use .yes for included, .no for excluded -->
+          <li><i class="fas fa-check-circle yes"></i> 8 Sessions / Month</li>
+          <li><i class="fas fa-check-circle yes"></i> 1 Hour per Session</li>
+          <li><i class="fas fa-check-circle yes"></i> 1 Subject Only</li>
+          <li><i class="fas fa-check-circle yes"></i> Homework Help</li>
+          <li><i class="fas fa-check-circle yes"></i> WhatsApp Support</li>
+          <li><i class="fas fa-times-circle no"></i> Monthly Progress Report</li>
+        </ul>
+        <a href="https://wa.me/923001234567?text=Hi%2C%20I%27m%20interested%20in%20the%20Basic%20plan."
+           class="btn-plan btn-plan-out" target="_blank" rel="noopener">Get Started</a>
+      </div>
+
+      <!-- STANDARD (featured) -->
+      <div class="price-card featured reveal">
+        <div class="pop-badge">&#9733; Most Popular</div>
+        <div class="tier-name">Standard</div>
+        <div class="price">&#36; 1,500</div>
+        <div class="price-per">per month</div>
+        <ul class="feat-list">
+          <li><i class="fas fa-check-circle yes"></i> 12 Sessions / Month</li>
+          <li><i class="fas fa-check-circle yes"></i> 1.5 Hours per Session</li>
+          <li><i class="fas fa-check-circle yes"></i> Up to 2 Subjects</li>
+          <li><i class="fas fa-check-circle yes"></i> Homework Help</li>
+          <li><i class="fas fa-check-circle yes"></i> WhatsApp Support</li>
+          <li><i class="fas fa-check-circle yes"></i> Monthly Progress Report</li>
+        </ul>
+        <a href="https://wa.me/923001234567?text=Hi%2C%20I%27m%20interested%20in%20the%20Standard%20plan."
+           class="btn-plan btn-plan-fill" target="_blank" rel="noopener">Get Started</a>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="price-card reveal">
+        <div class="tier-name">Premium</div>
+        <div class="price">&#36; 2,000</div>
+        <div class="price-per">per month</div>
+        <ul class="feat-list">
+          <li><i class="fas fa-check-circle yes"></i> 16 Sessions / Month</li>
+          <li><i class="fas fa-check-circle yes"></i> 1.5 Hours per Session</li>
+          <li><i class="fas fa-check-circle yes"></i> Up to 3 Subjects</li>
+          <li><i class="fas fa-check-circle yes"></i> Priority Homework Help</li>
+          <li><i class="fas fa-check-circle yes"></i> 24/7 WhatsApp Support</li>
+          <li><i class="fas fa-check-circle yes"></i> Monthly Progress Report</li>
+        </ul>
+        <a href="https://wa.me/923001234567?text=Hi%2C%20I%27m%20interested%20in%20the%20Premium%20plan."
+           class="btn-plan btn-plan-out" target="_blank" rel="noopener">Get Started</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT / BOOK
+     EDIT: WhatsApp href, phone number, city/area, hours
+============================================================ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-wrap reveal">
+
+      <div class="contact-hero">
+        <h3>Ready to Get Started?</h3>
+        <p>Book a completely free trial class — no payment, no commitment. Just great teaching.</p>
+        <div class="contact-btns">
+          <!-- EDIT: WhatsApp number -->
+          <a href="https://wa.me/923001234567?text=Hi%20Sir%20Ahmed%2C%20I%27d%20like%20to%20book%20a%20free%20trial%20class."
+             class="btn btn-wa" target="_blank" rel="noopener"
+             style="font-size:1.08rem;padding:16px 34px;">
+            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-meta">
+        <div class="meta-item">
+          <div class="meta-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <!-- EDIT: Phone number display -->
+            <strong>+92 333 4107890</strong>
+            <span>Call / WhatsApp</span>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon"><i class="fas fa-location-dot"></i></div>
+          <div>
+            <!-- EDIT: Location / service area -->
+            <strong>West Hartford, Connecticut, United States</strong>
+            <span>Home &amp; Online Sessions</span>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <!-- EDIT: Availability hours -->
+            <strong>Mon–Sat: 2 PM – 9 PM</strong>
+            <span>Available Hours</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     EDIT: tutor name, tagline, and credit link
+============================================================ -->
+<footer>
+  <div class="container">
+    <!-- EDIT: Tutor name -->
+    <div class="footer-name">Jim Doyle</div>
+    <!-- EDIT: Footer tagline -->
+    <div class="footer-sub">Expert Math &amp; Science Tutor — West Hartford, Connecticut, United States</div>
+
+    <ul class="footer-nav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#subjects">Subjects</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <hr class="foot-hr">
+
+    <!-- EDIT: Replace "Your Name" and add your website link -->
+    <div class="foot-credit">
+      &copy; 2025 Jim Doyle &nbsp;|&nbsp; Website by <a href="#">Your Name</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JAVASCRIPT  –  no editing needed for customization
+============================================================ -->
+<script>
+  // ----- Hamburger menu -----
+  const ham  = document.getElementById('hamburger');
+  const nav  = document.getElementById('navLinks');
+
+  ham.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  // ----- Navbar shadow on scroll -----
+  const navbar = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // ----- Scroll-reveal with stagger -----
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      // Find sibling .reveal elements and stagger by index
+      const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
+      const idx = siblings.indexOf(entry.target);
+      setTimeout(() => entry.target.classList.add('visible'), idx * 110);
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ----- Active nav link highlight -----
+  const sections  = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('#navLinks a[href^="#"]');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.id; });
+    navLinks.forEach(a => {
+      const active = a.getAttribute('href') === '#' + current;
+      a.style.color      = active ? 'var(--primary)' : '';
+      a.style.fontWeight = active ? '600' : '500';
+    });
+  }, { passive: true });
+</script>
+
+</body>
+</html>
